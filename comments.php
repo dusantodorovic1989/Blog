@@ -1,11 +1,29 @@
-<?php
-
-include ('povezivanje_sa_bazom.php');
-?>
 
 <?php
-$sql = "SELECT * FROM comments ORDER BY desc;
-$statment = $connection->prepare($sql);
-$statment->execute();
-$statment->setFetchMode(PDO::FETCH_ASSOC);
-$singlepost = $statment->fetch();
+
+       $sqlUpitComments = "SELECT * FROM comments";
+       $stmt2 = $connection->prepare($sqlUpitComments);
+       $stmt2->execute();
+       $stmt2->setFetchMode(PDO::FETCH_ASSOC);
+       $comments = $stmt2->fetchAll();
+
+           foreach ($comments as $comment) {
+
+       ?>
+
+       <div class="single-comment">
+           <ul>
+               <li>
+       <hr>
+                   <div>posted by: <strong><?php echo($comment['Author']); ?>
+                   </strong> on 10. 10. 2018</div>
+
+           <div><?php echo($comment['Text']); ?></div>
+
+       </div>
+
+
+       <?php } ?>
+               </li>
+           </ul>
+

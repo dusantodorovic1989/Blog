@@ -1,3 +1,4 @@
+
 <?php
 include('header.php');
 include('footer.php');
@@ -20,7 +21,14 @@ $singlepost = $statment->fetch();
                <p class="blog-post-meta"><?php echo ($singlepost['Created_at']);?><a href="#"><?php echo ($singlepost['Author']);?></a></p>
                <p> <?php echo ($singlepost['Body']);?></p>
                <hr>
+<button onclick="myFunction()" id = 'btn' class="btn">Hide Comments</button>
+<div id = 'postComments'>
+<?php
+    include('comments.php')
+?>
+</div>
 
+<script src="java.js"></script>
 <?php
 include('sidebar.php');
 ?>
