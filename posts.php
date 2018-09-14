@@ -8,7 +8,7 @@ include ('povezivanje_sa_bazom.php');
 
     <div class="col-sm-8 blog-main">
 <?php
- $sql = 'SELECT * FROM posts ORDER BY Created_at asc';
+ $sql = 'SELECT * FROM posts ORDER BY Created_at DESC';
  $statment = $connection->prepare($sql);
  $statment-> execute();
  $statment->setFetchMode(PDO::FETCH_ASSOC);
@@ -16,7 +16,7 @@ include ('povezivanje_sa_bazom.php');
  
  ?> 
 <?php
-foreach($posts as $post){
+    foreach($posts as $post){
 ?>
 <div class="blog-post">
                 <h2 class="blog-post-title"><a href= "single-post.php?post_id=<?php echo $post['Id']?>"><?php echo ($post['Title']); ?></h2>

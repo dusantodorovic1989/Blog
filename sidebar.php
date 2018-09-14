@@ -1,4 +1,6 @@
 <?php
+include 'povezivanje_sa_bazom.php';
+
 $sql3 = "SELECT Title, Id FROM posts ORDER BY Created_at DESC LIMIT 5";
 $state3 = $connection->prepare($sql3);
 $state3->execute();
